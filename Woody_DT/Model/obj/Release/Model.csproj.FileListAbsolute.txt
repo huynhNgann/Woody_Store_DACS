@@ -1,0 +1,15 @@
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\bin\Release\Model.dll.config
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\bin\Release\Model.dll
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\bin\Release\Model.pdb
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\bin\Release\EntityFramework.dll
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\bin\Release\EntityFramework.SqlServer.dll
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\bin\Release\PagedList.dll
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\bin\Release\PagedList.Mvc.dll
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\bin\Release\EntityFramework.xml
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\bin\Release\EntityFramework.SqlServer.xml
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\bin\Release\PagedList.xml
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\bin\Release\PagedList.Mvc.xml
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\obj\Release\Model.csproj.CopyComplete
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\obj\Release\Model.dll
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Model\obj\Release\Model.pdb

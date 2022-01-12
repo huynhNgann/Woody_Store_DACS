@@ -1,0 +1,218 @@
+﻿@model Model.EF.Product
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var category = (Model.EF.ProductCategory)ViewBag.Category;
+    var relatedProducts = (List<Model.EF.Product>)ViewBag.RelatedProducts;
+}
+<style>
+    #zoom-image {
+        width: 470px;
+        height: 500px;
+    }
+
+    .carousel-type-2 img {
+        width: 110%;
+        height: 110px;
+    }
+</style>
+<section style="margin-top: 100px;margin-bottom: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div style="max-width: 470px">
+                    <div class="image-preview-container">
+                        <!-- - - - - - - - - - - - - - Image Preview Container - - - - - - - - - - - - - - - - -->
+                        <div class="image-preview">
+                            <a href=""
+                               data-zoom-image="@Model.Image" data-fancybox="group">
+                                <img id="zoom-image" src="@Model.Image" alt="">
+                            </a>
+                        </div>
+                        <!--/ .image-preview-->
+                        <!-- - - - - - - - - - - - - - End of Image Preview Container - - - - - - - - - - - - - - - - -->
+                        <!-- - - - - - - - - - - - - - Thumbnails - - - - - - - - - - - - - - - - -->
+                        <div class="carousel-type-2">
+                            <div class="owl-carousel type-small product-thumbs" id="thumbnails" data-max-items="4">
+                                <a class="active" href="#" data-image="@Model.Image1"
+                                   data-zoom-image="@Model.Image1">
+                                    <img id="img" src="@Model.Image1" alt="">
+                                </a>
+                                <a href="@Model.Image2"
+                                   data-image="@Model.Image2"
+                                   data-zoom-image="@Model.Image2" data-fancybox="group">
+                                    <img id="img1" src="@Model.Image2" alt="">
+                                </a>
+                                <a href="@Model.Image3"
+                                   data-image="@Model.Image3"
+                                   data-zoom-image="@Model.Image3" data-fancybox="group">
+                                    <img id="img2" src="@Model.Image3" alt="">
+                                </a>
+                                <a href="@Model.Image4"
+                                   data-image="@Model.Image4"
+                                   data-zoom-image="@Model.Image4" data-fancybox="group">
+                                    <img id="img3" src="4" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- - - - - - - - - - - - - - End of Thumbnails - - - - - - - - - - - - - - - - -->
+                    </div>
+                    <!--/ .image-preview-container -->
+                </div>
+            </div>
+            <div class="col-md-6  clearfix">
+                <div class="mid-product-content media-body">
+                    <h3 style="font-size: 35px">@Model.Name </h3>
+                    <p style="color: #000">In Stock - SKU: 60354</p>
+                    <div class="notable clearfix">
+                        <ul>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star-o"></i></li>
+                        </ul>
+                        <p>@Model.ViewCount</p>
+                    </div><!--/notable-->
+                    <div class="details-desc" style="margin-top: 0">
+                        <p>
+                            @Model.Description
+                        </p>
+                    </div>
+                    <span class="details-price"> @(Model.Price.HasValue ? Model.Price.Value.ToString("N0") : "Liên Hệ")</span>
+                    <div class="lineAbout" style="width: 100%;height: 1px"></div>
+
+                    <div class="details-button clearfix" style="margin-bottom: 0">
+                        <div style="width: 50%;float: left">
+                            <h3>Quantity</h3>
+                            <div class="pd-c-quantity quantity details-next">
+                                <input type="number" min="1" max="100" step="1" value="1">
+                                <div class="quantity-button quantity-down">
+                                    <span class="step-next"><i class="la la-angle-down"></i></span>
+                                </div>
+                                <div class="quantity-button quantity-up">
+                                    <span class="step-next"><i class="la la-angle-up"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="lineAbout" style="width: 100%;height: 1px;    margin-top: 15px;"></div>
+                    <div class="addCart">
+                        <ul>
+                            <a href="/them-gio-hang?productId=@Model.ID&quantity=1">
+                                <li>
+                                    <button class="button btn-hover btn-details">
+                                        Thêm vào giỏ hàng <i class="la la-shopping-cart" style="font-size: 20px;position: relative;top: 2px;">
+                                        </i>
+
+                                    </button>
+
+                                </li>
+                            </a>
+                            <li style="margin-left: 40px;">
+                                <i class="la la-heart-o" style="font-size: 20px;position: relative;top: 2px;"></i> Yêu thích
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="category_tag" style="margin-top: 20px">
+
+                        <div class="share-link tags">
+                            <p class="tags-item">Chia sẻ:</p>
+                            <ul class="sku-nd">
+                                <li><a href="#" title=""><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" title=""><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" title=""><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#" title=""><i class="fa fa-rss"></i></a></li>
+                            </ul>
+                        </div><!--/share-link-->
+                        <div class="category tags">
+                            <p class="tags-item">@category.Name </p>
+                            <span><a href="#" class="sku-nd" style="font-size: 12px">@category.ShowOnHome</a></span>
+                        </div><!--/category-->
+                    </div><!--/category_tag-->
+                </div><!--/mid-product-content-->
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="tabProduct">
+    <div class="container">
+        <div class="menuTabPro">
+            <ul class="">
+                <li class="active"><a data-toggle="tab" href="/">Bài viết đánh giá</a></li>
+
+            </ul>
+        </div>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active tabProText">
+                <p>@Html.Raw(Model.Detail)</p>
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<section class="page-shop-slidebar" style="    padding-top: 60px;">
+    <div class="container">
+        <div class="text-center">
+            <h3>Các sản phẩm liên quan</h3>
+        </div>
+        <div class="row">
+            @foreach (var item in relatedProducts)
+            {
+                var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                <div class="col-md-3">
+                    <div class="productG ">
+                        <div class="sizeImg" style="width: 100%;float: none">
+                            <img src="@item.Image" alt="product1" class="img-responsive" />
+                            <div class="arrIcon"></div>
+                            <div class="box-posi">HOT</div>
+                            <div class="arrIcon2">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="la la-shopping-cart"></i>
+                                        </a>
+                                    </li>
+                                    <li style="margin-left: 6px;margin-right: 6px;">
+                                        <a href="@url">
+                                            <i class="la la-eye"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="la la-heart-o"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sizeImgCalc" style="width: 100%;float: none;padding-left: 0;padding-bottom: 7px;">
+                            <h3>@item.Name</h3>
+                            <h4>@item.Price</h4>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+    </div>
+</section>
+@section zoomslide{
+
+    <link rel="stylesheet" href="~/Asset/User/vendor/slide-zoom/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="~/Asset/User/vendor/slide-zoom/css/fontello.css">
+}
+@section footerzoomsilde{
+    <script src="~/Asset/User/vendor/slide-zoom/js/jquery.modernizr.js"></script>
+    <script src="~/Asset/User/vendor/slide-zoom/js/instafeed.min.js"></script>
+    <script src="~/Asset/User/vendor/slide-zoom/js/elevatezoom.min.js"></script>
+    <script src="~/Asset/User/vendor/slide-zoom/js/jquery.fancybox.min.js"></script>
+}

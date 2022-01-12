@@ -1,0 +1,194 @@
+﻿@model List<Model.EF.Product>
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var category = (Model.EF.ProductCategory)ViewBag.Category;
+    ViewBag.Title = category.Name;
+    
+}
+
+
+<section class="page-shop-slidebar" style="    padding-top: 60px;">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-9 col-md-push-3">
+                <img src="~/Asset/User/image/637666479769430034_F_H1_800x300.jpg" alt="product1" class="img-responsive" />
+                <h3 style="font-size: 18px;font-weight: bold;margin-top: 30px;margin-bottom: 10px">@category.Name</h3>
+                <div class="box-fitter clearfix">
+                    <div class="box-fitter-left">
+                        <ul>
+                            <li style="margin-right: 5px">
+                                <a href="/Product/Index">
+                                    <div><i class="la la-th-large"></i></div>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="ProductGroup.html">
+                                    <div><i class="la la-list-ul"></i></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box-fitter-right">
+                        <ul>
+                            <li>Sort by:</li>
+                            <li>
+                                <div class="dropdown filterDrop">
+                                    <a class=" dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                                        Alphabetically, A-Z
+                                        <span class="fa fa-angle-down"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">USD</a></li>
+                                        <li><a href="#">VND</a></li>
+                                        <li><a href="#">EURO</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                        <div class="col-md-4">
+                            <div class="productG ">
+                                <div class="sizeImg" style="width: 100%;float: none">
+                                    <img src="@item.Image" alt="product1" class="img-responsive" />
+                                    <div class="arrIcon"></div>
+                                    <div class="box-posi">HOT</div>
+                                    <div class="arrIcon2">
+                                        <ul>
+                                            <li>
+                                                <a href="/them-gio-hang?productId=@item.ID&quantity=1">
+                                                    <i class="la la-shopping-cart"></i>
+                                                </a>
+                                            </li>
+                                            <li style="margin-left: 6px;margin-right: 6px;">
+                                                <a href="@url">
+
+                                                    <i class="la la-eye"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+
+                                                    <i class="la la-heart-o"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="sizeImgCalc" style="width: 100%;float: none;padding-left: 0;padding-bottom: 7px;">
+                                    <h3>@item.Name</h3>
+                                    <h4>@item.Price</h4>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+
+                <!--Phân trang-->
+                @if (ViewBag.TotalPage > 1)
+                {
+                    var pageDisplay = (int)ViewBag.MaxPage;
+                    int totalPage = (int)ViewBag.TotalPage;
+                    int currentPage = ((int)ViewBag.Page);
+
+                    // Create numeric links
+                    var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+                    var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+                    var link = "/san-pham/" + category.MetaTitle + "-" + category.ID;
+                    <nav>
+                        <ul class="pagination">
+                            <!-- if (currentPage > ViewBag.First){
+                                        <div class="paginate">
+                                        <ul>
+                                        <li><a href="link?page=ViewBag.First" title="Trang đầu" class="first"></a>
+                                        <li><a href="link?page=ViewBag.Prev" title="Trang trước" class="first"></a>
+                                        </ul>
+                                    </div>
+                            }-->
+                            @for (int i = startPageIndex; i <= endPageIndex; i++)
+                            {
+                                if (currentPage == i)
+                                {
+                                    <li>
+                                        <a href="@link?page=@i" class="active" title="Trang @i">
+                                            <div style="width: 30px;height: 30px;background: #000;color: #fff;text-align: center;padding-top: 8px">
+                                                @i
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                }
+                                else
+                                {
+
+                                    <li>
+                                        <a href="@link?page=@i" class="pos" title="Trang @i">
+                                            <div style="width: 30px;height: 30px;background: #000;color: #fff;text-align: center;padding-top: 8px">
+                                                @i
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                }
+                            }
+                            <!--   i f (currentPage < totalPage)
+                            {
+                                <div class="paginate">
+                                    <li><a href="link?page=ViewBag.Next" title="Trang đầu" class="first"></a>
+                                    <li><a href="link?page@ViewBag.Last" title="Trang trước" class="first"></a>
+                                </div>
+
+
+                            } -->
+                        </ul>
+                    </nav>
+
+                }
+                else
+                {
+                    <span>Không có bản ghi nào</span>
+                }
+            </div>
+            <div class="col-md-3 col-md-pull-9">
+
+                <div class=" slideSort">
+                    <h3 class="slider-left-title">Categories</h3>
+                    <ul class="slide-left-list">
+                        @{Html.RenderAction("ProductCategory", "Product");}
+                    </ul>
+                </div>
+                <div class="lineAbout" style="width: 100%;height: 1px"></div>
+                <div class=" slideSort">
+                    <h3 class="slider-left-title">Các sản phẩm</h3>
+                    <ul class="slide-left-list">
+                        <li><a href="/Product/Index">Sản phẩm phổ Hot</a></li>
+                        <li><a href="/Product/Index">Sản phẩm phổ biến</a></li>
+                        <li><a href="/Product/Index">Sản phẩm Hot</a></li>
+                        <li><a href="/Product/Index">Sảm phẩm Sales</a></li>
+
+
+                    </ul>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+    </section>

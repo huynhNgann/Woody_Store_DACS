@@ -1,0 +1,86 @@
+﻿@model Woody_DT.Models.LoginModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="myAcc">
+   
+        <div style="  width: calc(100% - 200px);margin: 0 auto">
+            <h3>Login / register</h3>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="accInput">
+                        @using (Html.BeginForm("Login", "User", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                <h4>Đăng nhập</h4>
+                                <hr />
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2"></label>
+                                    <div class="col-md-10">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Đăng nhập" class="btn btn-default" />
+                                        <a class="btn btn-facebook" href="/User/LoginFacebook">
+                                            <i class="fa fa-facebook"></i>
+                                            Đăng nhập bằng Facebook
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div> 
+                </div>
+
+               
+                             
+              
+   <div class="col-md-6">
+                        <div class="accInput">
+                            <p>Email Address *</p>
+                            <input type="text" class="inputText" placeholder="Enter your email address">
+                            <div>
+                                <p style="color: #000;margin-top: 40px;margin-bottom: 18px;">A password will be sent to your email address.</p>
+                                <p style="color: #000">
+                                    Your personal data will be used to support your experience <br>
+                                    throughout this website, to manage access to your <br>
+                                    account, and for other purposes described in our privacy <br>
+                                    policy.
+                                </p>
+                            </div>
+                            <a href="/dang-ky" style="color: #000" class="Brightness">
+                                <div class="btn-arrival" style="    margin-top: 25px;">
+                                    <div>REGISTER <img src="~/Asset/User/images/arr.png" alt="logo"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+       </div>
+            </div>
+</section>

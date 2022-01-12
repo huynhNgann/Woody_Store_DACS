@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Model.EF.GroupUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Danh sách danh mục sản phẩm</h1>
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  
+                </div>
+                <div class="card-body">
+                    <a class="btn btn-primary" href="/Admin/GroupUsers/Create">Thêm mới</a>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.GroupID }) |
+                                    @Html.ActionLink("Chi tiết", "Details", new { id = item.GroupID }) |
+                                    @Html.ActionLink("Xóa", "Delete", new { id = item.GroupID })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                    </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+</div>

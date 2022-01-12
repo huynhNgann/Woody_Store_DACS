@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Model.EF.Chitietgiohang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Danh sách các đơn hàng</h1>
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+               
+                </div>
+                <div class="card-body">
+
+                    <a class="btn btn-primary" href="/Admin/Chitietgiohangs/Create">Thêm mới</a>
+                    <table class="table">
+                      
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Quantity)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Price)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Quantity)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Price)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Chi tiết", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                        @Html.ActionLink("Chỉnh sửa", "Details", new { /* id=item.PrimaryKey */ }) |
+                                        @Html.ActionLink("Xóa", "Delete", new { /* id=item.PrimaryKey */ })
+                                    </td>
+                                </tr>
+                            }
+
+                    </table>
+
+
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+</div>

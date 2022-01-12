@@ -1,0 +1,164 @@
+﻿@model IEnumerable<Model.EF.Product>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh sách sản phẩm</h6>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Index", "Products", FormMethod.Get))
+                    {
+                        <div class="row ">
+                            <div class="col-lg-12">
+                                <div class="col-md-4">
+                                    <input type="text" value="@ViewBag.SearchString" class="form-control" name="searchString" />
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-success">Tìm kiếm</button>
+                                    <a class="btn btn-primary" href="/Admin/Products/Create">Thêm mới</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" cellspacing="0">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Code)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MetaTitle)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Description)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Image)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Price)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PromotionPrice)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IncludeVAT)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Quantity)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CategoryID)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Detail)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Warranty)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreateDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreateBy)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Status)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TopHot)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ViewCount)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Code)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MetaTitle)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Image)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Price)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PromotionPrice)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IncludeVAT)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Quantity)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CategoryID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Detail)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Warranty)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreateDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreateBy)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TopHot)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ViewCount)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.ID }) |
+                                        @Html.ActionLink("Chi tiết", "Details", new { id = item.ID }) |
+                                        @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                    
+                </div>
+        <!-- /.container-fluid -->
+
+    </div>
+</div>
+</div>
+</div>

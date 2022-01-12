@@ -1,0 +1,61 @@
+﻿
+@using Woody_DT.Common;
+
+<div class="home-top" style="margin-top: 0">
+    <div class="container">
+        <div class="header-top clearfix">
+            <div class="header-tleft pull-left">
+                <div class="link-list link-list-first">
+                    <span>Welcome to Our Wood Store !</span>
+                </div>
+            </div>
+            @{
+                var session = (UserLogin)Session[Woody_DT.Common.CommonConstants.USER_SESSION]; }
+
+            @if (session == null)
+            {
+                <div class="header-dropdown pull-right">
+                    <div class="dropdown dp-iblock ">
+                        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
+                            <a href="/dang-nhap">ĐĂNG NHẬP</a>
+                        </button>
+
+                    </div>
+                    <div class="dropdown header-dropdown-br dp-iblock">
+                        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
+                            <a href="dang-ky">ĐĂNG KÍ</a>
+                        </button>
+
+                    </div>
+                    @{Html.RenderAction("HeaderCart", "Home");}
+
+                </div>
+            }
+            else
+            {
+        <div class="header-dropdown pull-right">
+            <div class="dropdown dp-iblock ">
+                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
+                    <a href="/dang-nhap">@session.UserName</a>
+                </button>
+                @{Html.RenderAction("HeaderCart", "Home");}
+            </div>
+            
+
+        </div>
+              
+
+            }
+            <!--                            <div class="header-tleft pull-right">-->
+            <!--                                -->
+            <!--                                <div class="link-list link-list-first">-->
+            <!--                                    <span><i class="fa fa-phone" aria-hidden="true"></i>(88) 0111 223 445</span>-->
+            <!--                                </div>-->
+            <!--                                <div class="link-list ">-->
+            <!--                                    <span><i class="fa fa-home" aria-hidden="true"></i>20 Green Farm, New Zealand</span>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+        </div>}
+    </div>
+</div>
+    

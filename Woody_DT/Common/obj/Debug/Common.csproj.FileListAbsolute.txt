@@ -1,0 +1,12 @@
+D:\ChuyenDeNet\Woody_DT\Common\bin\Debug\Common.dll
+D:\ChuyenDeNet\Woody_DT\Common\bin\Debug\Common.pdb
+D:\ChuyenDeNet\Woody_DT\Common\obj\Debug\Common.csprojAssemblyReference.cache
+D:\ChuyenDeNet\Woody_DT\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\ChuyenDeNet\Woody_DT\Common\obj\Debug\Common.dll
+D:\ChuyenDeNet\Woody_DT\Common\obj\Debug\Common.pdb
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Common\bin\Debug\Common.dll
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Common\bin\Debug\Common.pdb
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Common\obj\Debug\Common.dll
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Common\obj\Debug\Common.pdb
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Common\obj\Debug\Common.csprojAssemblyReference.cache

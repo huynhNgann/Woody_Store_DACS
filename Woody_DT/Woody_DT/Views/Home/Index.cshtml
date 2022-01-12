@@ -1,0 +1,355 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    var listNewProducts = (List<Model.EF.Product>)ViewBag.NewProducts;
+    var listFeatureProducts = (List<Model.EF.Product>)ViewBag.ListFeatureProducts;
+    var listsaleProduct = (List<Model.EF.Product>)ViewBag.listSaleProduct;
+}
+@section homebot{
+   
+
+}
+<section class="kitchen-box">
+    <div class="container">
+        <div class="row" style="margin-bottom: 30px">
+
+            <div class="col-md-6 relative">
+                <div class="box-text">
+
+                    <div class="title-text2">
+                        <h3>Iphone 13</h3>
+
+                    </div>
+                    <div class="text-center box-text-p">
+                        <p>
+                            Sang, đẳng cấp <br>
+                            Thời thuợng
+                        </p>
+                    </div>
+                </div> <a href="/san-pham/iphone-1">
+                    <img src="~/Asset/User/image/iphonghong200521-1621499605031549590844.png" style="width:600px;height:300px;" alt="logo" class=" img-responsive">
+
+                    <img src="~/Asset/User/images/arr.png" alt="logo" class="kitchen-arr">
+
+                    <div class="header-position-one"></div>
+                </a>
+            </div>
+            <div class="col-md-3 relative">
+                <div class="box-text">
+                    <div class="title-text2">
+                        <h3></h3>
+
+                    </div>
+                    <div class="text-center box-text-p">
+                        <p>
+                            SAMSUNG <br>
+
+                        </p>
+                    </div>
+                </div>
+                <img src="~/Asset/User/image/smart-keyboard-folio-4-ipad-pro-mxnl2-3-avt-600x600.jpg" style="width:300px;height:300px;" alt="logo" class=" img-responsive">
+                <a href="/Product/Index" class="hover-kitchen"> <img src="~/Asset/User/images/arr.png" alt="logo" class="kitchen-arr"></a>
+                <div class="header-position"></div>
+            </div>
+            <div class="col-md-3 relative">
+                <div class="box-text">
+                    <div class="title-text2">
+                        <h3></h3>
+
+                    </div>
+                    <div class="text-center box-text-p">
+                        <p>
+
+                        </p>
+                    </div>
+                </div><a href="#" class="hover-kitchen">
+                    <img src="~/Asset/User/image/tai-nghe-chup-tai-bluetooth-sony-wh-xb900n-den-1-org.jpg" style="width:300px;height:300px;" alt="logo" class=" img-responsive">
+                    <img src="~/Asset/User/images/arr.png" alt="logo" class="kitchen-arr">
+                </a>
+                <div class="header-position"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 relative">
+                <div class="box-text">
+                    <div class="title-text2">
+                        <h3></h3>
+                    </div>
+                    <div class="text-center box-text-p">
+                        <p>
+
+                        </p>
+                    </div>
+                </div> <a href="#" class="hover-kitchen">
+                    <img src="~/Asset/User/image/637671531757800993_00772454-HASP-1.jpg" style="width:300px;height:300px;" alt="logo" class="img-responsive">
+                    <img src="~/Asset/User/images/arr.png" alt="logo" class="kitchen-arr">
+                </a>
+                <div class="header-position"></div>
+            </div>
+            <div class="col-md-3 relative">
+                <div class="box-text">
+                    <div class="title-text2">
+                        <h3></h3>
+
+                    </div>
+                    <div class="text-center box-text-p">
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+                <img src="~/Asset/User/image/apple-watch-s6-44mm-vien-nhom-day-cao-su-thumb-229055-600x600.jpg" style="width:300px;height:300px;" alt="logo" class=" img-responsive">
+                <a href="#" class="hover-kitchen"> <img src="~/Asset/User/images/arr.png" alt="logo" class="kitchen-arr "></a>
+                <div class="header-position"></div>
+            </div>
+            <div class="col-md-6 relative">
+                <div class="box-text">
+                    <div class="title-text2">
+                        <h3>TOOLS KIT</h3>
+
+                    </div>
+                    <div class="text-center box-text-p">
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+                <img src="~/Asset/User/image/bluetooth-harman-kardon-onyx-studio-6-1-org.jpg" style="width:600px;height:300px;" alt="logo" class=" img-responsive">
+                <a href="#" class="hover-kitchen"> <img src="~/Asset/User/images/arr.png" alt="logo" class="kitchen-arr"></a>
+                <div class="header-position-one"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="latest-product">
+    <div class="container">
+        <div class="latest-product-title title-text">
+            <h3><a href="/Prodcu/Index">Tất cả sản phẩm</a></h3>
+            <p>Chất lượng luôn đi đầu</p>
+        </div>
+        <div class="detail-navtab latest-product-tab">
+
+            <a data-toggle="pill" href="#all" class="color-setting"><h1>Sản Phẩm HOT</h1></a>
+            <div class="tab-content detail-tab">
+                <div id="all" class="tab-pane fade  active in">
+                    <div class="row product-gird">
+                        <!-- /product-item -->
+                        @foreach (var item in listNewProducts)
+                        {
+                            var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                            <div class="col-xs-6 col-sm-3">
+                                <div class="product-item productG" style="width:270px;height:330px; margin-top: 0">
+                                    <div class="product-image sizeImg" style="height: 100%">
+                                        <img src="@item.Image" alt="@item.Name" class="product-img-first img-responsive">
+                                        <div class="arrIcon"></div>
+                                        <div class="box-posi">TOP</div>
+                                        <div class="arrIcon2">
+                                            <ul>
+                                                <li>
+                                                    <a href="/them-gio-hang?productId=@item.ID&quantity=1">
+
+                                                        <i class="la la-shopping-cart"></i>
+                                                    </a>
+                                                </li>
+                                                <li style="margin-left: 6px;margin-right: 6px;">
+                                                    <a href="/chi-tiet/@item.MetaTitle-@item.ID">
+
+                                                        <i class="la la-eye"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+
+                                                        <i class="la la-heart-o"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-text clearfix">
+                                        <div class="product-left pull-left" style="padding-top: 20px;padding-bottom: 15px;">
+                                            <div class="product-name">
+                                                <h3 class="product-title">
+                                                    <a href="@url" class="color-setting">@item.Name</a>
+                                                </h3>
+                                            </div>
+                                            <div class="product-price">
+                                                <span class="price">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ")</span>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="latest-product">
+    <div class="container">
+        <div class="latest-product-title title-text">
+            <h3><a href="/san-pham">Khuyến Mãi</a></h3>
+
+            <div class="detail-navtab latest-product-tab">
+
+
+                <div class="tab-content detail-tab">
+                    <div id="all" class="tab-pane fade  active in">
+                        <div class="row product-gird">
+                            <!-- /product-item -->
+                            @foreach (var item in listsaleProduct)
+                            {
+                                var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                                <div class="col-xs-6 col-sm-3">
+                                    <div class="product-item productG" style="width:270px;height:330px; margin-top: 0">
+                                        <div class="product-image sizeImg" style="height: 100%">
+                                            <img src="@item.Image" alt="@item.Name" class="product-img-first img-responsive">
+                                            <div class="arrIcon"></div>
+                                            <div class="box-posi">TOP</div>
+                                            <div class="arrIcon2">
+                                                <ul>
+                                                    <li>
+                                                        <a href="/them-gio-hang?productId=@item.ID&quantity=1">
+
+                                                            <i class="la la-shopping-cart"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li style="margin-left: 6px;margin-right: 6px;">
+                                                        <a href="/chi-tiet/@item.MetaTitle-@item.ID">
+
+                                                            <i class="la la-eye"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+
+                                                            <i class="la la-heart-o"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-text clearfix">
+                                            <div class="product-left pull-left" style="padding-top: 20px;padding-bottom: 15px;">
+                                                <div class="product-name">
+                                                    <h3 class="product-title">
+                                                        <a href="@url" class="color-setting">@item.Name</a>
+                                                    </h3>
+                                                </div>
+                                                <div class="product-price">
+                                                    <span class="price">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ")</span>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>
+<section class="latest-product">
+    <div class="container">
+
+        <div class="detail-navtab latest-product-tab">
+
+            <a data-toggle="pill" href="#all" class="color-setting"></a>
+            <div class="tab-content detail-tab">
+                <div id="all" class="tab-pane fade  active in">
+                    <div class="row product-gird">
+                        <!-- /product-item -->
+                        @foreach (var item in listFeatureProducts)
+                        {
+                            var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                            <div class="col-xs-6 col-sm-3">
+                                <div class="product-item productG" style="width:270px;height:330px; margin-top: 0">
+                                    <div class="product-image sizeImg" style="height: 100%">
+                                        <img src="@item.Image" alt="@item.Name" class="product-img-first img-responsive">
+                                        <div class="arrIcon"></div>
+                                        <div class="box-posi">TOP</div>
+                                        <div class="arrIcon2">
+                                            <ul>
+                                                <li>
+                                                    <a href="/them-gio-hang?productId=@item.ID&quantity=1">
+
+                                                        <i class="la la-shopping-cart"></i>
+                                                    </a>
+                                                </li>
+                                                <li style="margin-left: 6px;margin-right: 6px;">
+                                                    <a href="/chi-tiet/@item.MetaTitle-@item.ID">
+
+                                                        <i class="la la-eye"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+
+                                                        <i class="la la-heart-o"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-text clearfix">
+                                        <div class="product-left pull-left" style="padding-top: 20px;padding-bottom: 15px;">
+                                            <div class="product-name">
+                                                <h3 class="product-title">
+                                                    <a href="@url" class="color-setting">@item.Name</a>
+                                                </h3>
+                                            </div>
+                                            <div class="product-price">
+                                                <span class="price">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ")</span>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            </div>
+            <a href="/Product/Index">
+                <div class="viewMore" style="width: 136px;height: 42px;">
+                    <p style="padding-top: 9px;">Khuyến Mãi Hot</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+@section salesproduct{
+    <div class="col-md-3 ">
+        <div class="box-slider-left slideNewproduct slideNewproduct2">
+            <h3 class="slider-left-title" style="margin-bottom: 10px">Khuyến Mãi Hot</h3>
+            @foreach (var item in listsaleProduct)
+            {
+                var url = "/chi-tiet/" + @item.MetaTitle + "-" + @item.ID;
+                <div class="box-slideNewproduct" style="width:255px; height:55px;">
+                    <div class="slideNewproduct-item slideNewproduct-img">
+                        <a href="@url">
+                            <img src="@item.Image" alt="product1" style="width:200px; height:50px;" class="img-responsive" />
+                        </a>
+                    </div>
+                    <div class="slideNewproduct-item slideNewproduct-text">
+                        <h5><a href="@url">@item.Name</a></h5>
+                        <p class="slideProduct-price">@item.Price</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+

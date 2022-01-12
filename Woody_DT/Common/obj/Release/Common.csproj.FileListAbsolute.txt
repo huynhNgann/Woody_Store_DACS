@@ -1,0 +1,5 @@
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Common\bin\Release\Common.dll
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Common\bin\Release\Common.pdb
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Common\obj\Release\Common.csproj.CoreCompileInputs.cache
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Common\obj\Release\Common.dll
+D:\ChuyenDeNet\WoodyStore\Woody_DT\Common\obj\Release\Common.pdb

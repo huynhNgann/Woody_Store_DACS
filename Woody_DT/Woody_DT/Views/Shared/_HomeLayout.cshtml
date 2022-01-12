@@ -1,0 +1,386 @@
+﻿@using Model.EF;
+@using Woody_DT.Common;
+<!DOCTYPE html>
+<!-- <html class="no-js" lang="en"> -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="author" content="ThemePunch" />
+    <meta name="description" content="The Garden theme tempalte">
+    <meta name="keywords" content="The Garden theme template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" href="images/favicon.ico" type="image/gif" sizes="16x16"> -->
+    <!--Icons fonts-->
+    <link href="/Asset/User/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Asset/User/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <link href="/Asset/User/vendor/themify-icons/themify-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i|Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass:100,100i,200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+    <!--Styles-->
+    <link href="/Asset/User/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Asset/User/vendor/animsition/dist/css/animsition.min.css" rel="stylesheet">
+    <link href="/Asset/User/vendor/animate.css/source/slide_fwd_center/slide_fwd_center.css" rel="stylesheet">
+    <link href="/Asset/User/vendor/owl-carousel/css/owl.carousel.css" rel="stylesheet">
+    <link href="/Asset/User/vendor/css-hamburgers/css/hamburgers.min.css" rel="stylesheet">
+    <link href="/Asset/User/vendor/slick/css/slick.css" rel="stylesheet">
+    <link href="/Asset/User/vendor/range_filter/css/jquery-ui.css" rel="stylesheet">
+    <!-- Revolution -->
+    <link rel="stylesheet" type="text/css" href="/Asset/User/vendor/slider-revolution/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="/Asset/User/vendor/slider-revolution/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="/Asset/User/vendor/slider-revolution/css/navigation.css">
+    <!--Theme style-->
+    <link href="/Asset/User/css/main.css" rel="stylesheet">
+    <link href="/Asset/User/css/responsive.css" rel="stylesheet">
+</head>
+
+
+<body>
+   
+    <div class="the-garden">
+        <div class="search">
+            <input type="text" class="ip-search" placeholder="Search for...">
+        </div>
+        <header id="header" class="header-serviceV2 aaaa">
+
+            @RenderPage("TopMenu.cshtml")
+
+
+            <div class="home-menu">
+                <nav class="navbar-core navbar-white navbar-v1 headroom headroom--not-bottom headroom--pinned headroom--top">
+                    <div class="s-wrapper s-wrapper-service">
+                        <div class="container">
+                            <div class="s-inner clearfix">
+                                <div class="pull-left nav-left">
+                                    <div class="logo">
+                                        <a href="/Home/Index">
+                                            <img src="/Asset/User/images/logo.png" alt="logo" class=" img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                                <button class="hamburger has-animation hamburger--collapse" id="toggle-icon">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                                <div class="pull-right nav-right">
+                                    <div class="navbar-main">
+                                        <ul class="navbar-menu">
+                                            <li class="dropdown">
+                                                <a href="/Home/Index" style="color: #c19876;">TRANG CHỦ</a>
+
+                                            </li>
+                                            <li class="dropdown productMN">
+                                                <a href="/Product/Index">SẢN PHẨM</a>
+                                                <i class="fa fa-angle-down"></i>
+
+                                                <div class="box-menu">
+                                                    <div class="row">
+
+                                                        <div class="col-md-3 ">
+                                                            <div class=" slideSort">
+                                                                <h3 class="slider-left-title">Danh mục các sản phẩm</h3>
+                                                                <ul class="slide-left-list">
+                                                                    @{Html.RenderAction("ProductCategory", "Product");}
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 ">
+                                                            <div class=" slideSort">
+                                                                <h3 class="slider-left-title">SẢN PHẨM HOT</h3>
+                                                                <ul class="slide-left-list">
+                                                                    <li><a href="/Product/Index">Sản phẩm mới</a></li>
+                                                                    <li><a href="/Product/Index">Sản phẩm phổ biến</a></li>
+                                                                    <li><a href="/Product/Index">Sản phẩm Hot</a></li>
+                                                                    <li><a href="/Product/Index">Sảm phẩm Sales</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        @RenderSection("salesproduct", required: false)
+
+                                                        <div class="col-md-3 ">
+                                                            <h3 class="slider-left-title">Woody Store</h3>
+                                                            <div class="box-gallery">
+                                                                <a href="AboutUs.html">
+                                                                    <img src="~/Asset/User/images/MN2.png" alt="banner slideBar" class="img-responsive" style="width: 100%">
+                                                                    <div class="arrIcon">
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li class="dropdown">
+                                                <a href="/gioi-thieu"> GIỚI THIỆU</a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="/lien-he">LIÊN HỆ</a>
+                                            </li>
+                                            <li class="dropdown">
+
+                                                <a href="/User/Index">TÀI KHOẢN</a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </div>
+                                    <div class="search_box search2">
+                                        <ul>
+                                            <li>
+                                                <form class="timkiem" action="/tim-kiem" method="get">
+                                                    <input type="text" id="txtKeyword" name="keyword" placeholder="Gõ từ khoá" style="">
+                                                    <button id="btn" type="submit" value="" class="btn btn-link" ><i class="fas fa-search"></i></button>
+                                                </form>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="home-bot">
+                <div class="slider-headerrevo revo-v1 skew-slide">
+                    <div id="slide-home-serviceV2" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.1">
+
+                        <ul>
+                            <li data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="Power4.easeInOut" class="item-1 slide-show-serviceV2">
+                                <img src="~/Asset/User/image/HOME_T_O_KV_Main_Animated_KV_1440X640.gif" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg img-responsive" data-no-retina>
+
+                                <h2 class=" scoll-mr tp-caption tp-resizeme slider-geeting" data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:900,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]" data-fontsize="['14','14','14','14']" data-fontweight="['700','700','700','700']" data-textAlign="['center','center','center','center']" data-lineheight="['80','80','80','50']"
+                                    data-x="['center']" data-hoffset="['0', '0', '0', '0']" data-y="['middle']" data-voffset="['-92']">
+                                    WELCOME TO MY STORE
+                                </h2>
+                                <h2 class=" scoll-mr tp-caption tp-resizeme slider-geeting" data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:900,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]" data-fontsize="['42','42','42','42']" data-textAlign="['center','center','center','center']" data-lineheight="['80','80','80','50']"
+                                    data-x="['center']" data-hoffset="['0', '0', '0', '0']" data-y="['middle']" data-voffset="['-35']">
+                                    ALL THE WORLD OF WOOD
+                                </h2>
+                                <p class=" scoll-mr3 tp-caption tp-resizeme slider-content" data-frames="[{&quot;delay&quot;:1000,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;auto:auto;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" data-textAlign="['center','center','center','center']" data-lineheight="['30','30','30','30']" data-fontsize="['16','16','16','14']"
+                                   data-x="['center']" data-hoffset="['0', '0', '0', '0']" data-y="['middle']" data-voffset="['50','50','50','50']">
+                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum<br>dolore eu fugiat nulla pariatur.
+                                </p>
+                                <div class=" scoll-mr2 carousel-caption tp-caption tp-resizeme be-btn be-btn-primary be-btn-pill text-uppercase carousel-caption" data-frames='[{"delay":700,"speed":2000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:40px;","to":"o:1;fb:0;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                                     data-responsive="on" data-x="['center']" data-hoffset="['-70','-70','-70','-70']" data-y="['middle']" data-voffset="['180']">
+                                    <a href="/Product/Index" type="button" class="btn button buttonV1 btn-hover">SHOP NOW</a>
+                                    <a href="/gioi-thieu" type="button" class="btn button buttonV2 btn-hoverV3">ABOUT US</a>
+                                </div>
+                            </li>
+                            <li data-transition="fadetotopfadefrombottom" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="Power4.easeInOut" class="item-2 slide-show-serviceV2">
+                                <img src="~/Asset/User/image/iphonghong200521-1621499605031549590844.png" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg img-responsive" data-no-retina>
+
+                                <h2 class=" scoll-mr tp-caption tp-resizeme slider-geeting" data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:900,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]" data-fontsize="['14','14','14','14']" data-fontweight="['700','700','700','700']" data-textAlign="['center','center','center','center']" data-lineheight="['80','80','80','50']"
+                                    data-x="['center']" data-hoffset="['0', '0', '0', '0']" data-y="['middle']" data-voffset="['-92']">
+                                    WELCOME TO MY STORE
+                                </h2>
+                                <h2 class=" scoll-mr tp-caption tp-resizeme slider-geeting" data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:900,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]" data-fontsize="['42','42','42','42']" data-textAlign="['center','center','center','center']" data-lineheight="['80','80','80','50']"
+                                    data-x="['center']" data-hoffset="['0', '0', '0', '0']" data-y="['middle']" data-voffset="['-35']">
+                                    ALL THE WORLD OF WOOD
+                                </h2>
+                                <p class=" scoll-mr3 tp-caption tp-resizeme slider-content" data-frames="[{&quot;delay&quot;:1000,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;auto:auto;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" data-textAlign="['center','center','center','center']" data-lineheight="['30','30','30','30']" data-fontsize="['16','16','16','14']"
+                                   data-x="['center']" data-hoffset="['0', '0', '0', '0']" data-y="['middle']" data-voffset="['50','50','50','50']">
+                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum<br>dolore eu fugiat nulla pariatur.
+                                </p>
+                                <div class=" scoll-mr2 carousel-caption tp-caption tp-resizeme be-btn be-btn-primary be-btn-pill text-uppercase carousel-caption" data-frames='[{"delay":700,"speed":2000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:40px;","to":"o:1;fb:0;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                                     data-responsive="on" data-x="['center']" data-hoffset="['-70','-70','-70','-70']" data-y="['middle']" data-voffset="['180']">
+                                    <a href="/Product/Index" type="button" class="btn button buttonV1 btn-hover">SHOP NOW</a>
+                                    <a href="/gioi-thieu" type="button" class="btn button buttonV2 btn-hoverV3">ABOUT US</a>
+                                </div>
+                            </li>
+                            <li data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="Power4.easeInOut" class="item-3 slide-show-serviceV2">
+                                <img src="~/Asset/User/image/samsung-galaxy-s21-ultra-5g-6.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg img-responsive" data-no-retina>
+
+                                <h2 class=" scoll-mr tp-caption tp-resizeme slider-geeting" data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:900,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]" data-fontsize="['14','14','14','14']" data-fontweight="['700','700','700','700']" data-textAlign="['center','center','center','center']" data-lineheight="['80','80','80','50']"
+                                    data-x="['center']" data-hoffset="['0', '0', '0', '0']" data-y="['middle']" data-voffset="['-92']">
+                                    WELCOME TO MY STORE
+                                </h2>
+                                <h2 class=" scoll-mr tp-caption tp-resizeme slider-geeting" data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:900,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]" data-fontsize="['42','42','42','42']" data-textAlign="['center','center','center','center']" data-lineheight="['80','80','80','50']"
+                                    data-x="['center']" data-hoffset="['0', '0', '0', '0']" data-y="['middle']" data-voffset="['-35']">
+                                    ALL THE WORLD OF WOOD
+                                </h2>
+                                <p class=" scoll-mr3 tp-caption tp-resizeme slider-content" data-frames="[{&quot;delay&quot;:1000,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;auto:auto;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" data-textAlign="['center','center','center','center']" data-lineheight="['30','30','30','30']" data-fontsize="['16','16','16','14']"
+                                   data-x="['center']" data-hoffset="['0', '0', '0', '0']" data-y="['middle']" data-voffset="['50','50','50','50']">
+                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum<br>dolore eu fugiat nulla pariatur.
+                                </p>
+                                <div class=" scoll-mr2 carousel-caption tp-caption tp-resizeme be-btn be-btn-primary be-btn-pill text-uppercase carousel-caption" data-frames='[{"delay":700,"speed":2000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:40px;","to":"o:1;fb:0;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                                     data-responsive="on" data-x="['center']" data-hoffset="['-70','-70','-70','-70']" data-y="['middle']" data-voffset="['180']">
+                                    <a href="/Prodcuct/Index" type="button" class="btn button buttonV1 btn-hover">SHOP NOW</a>
+                                    <a href="/gioi-thieu" type="button" class="btn button buttonV2 btn-hoverV3">ABOUT US</a>
+                                </div>
+                            </li>
+                            <li data-transition="fadetotopfadefrombottom" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="Power4.easeInOut" class="item-4 slide-show-serviceV2">
+                                <img src="~/Asset/User/image/samsung-galaxy-z-fold-2-172920-032902.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg img-responsive" data-no-retina>
+
+                                <h2 class=" scoll-mr tp-caption tp-resizeme slider-geeting" data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:900,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]" data-fontsize="['14','14','14','14']" data-fontweight="['700','700','700','700']" data-textAlign="['center','center','center','center']" data-lineheight="['80','80','80','50']"
+                                    data-x="['center']" data-hoffset="['0', '0', '0', '0']" data-y="['middle']" data-voffset="['-92']">
+                                    WELCOME TO MY STORE
+                                </h2>
+                                <h2 class=" scoll-mr tp-caption tp-resizeme slider-geeting" data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:900,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]" data-fontsize="['42','42','42','42']" data-textAlign="['center','center','center','center']" data-lineheight="['80','80','80','50']"
+                                    data-x="['center']" data-hoffset="['0', '0', '0', '0']" data-y="['middle']" data-voffset="['-35']">
+                                    ALL THE WORLD OF WOOD
+                                </h2>
+                                <p class=" scoll-mr3 tp-caption tp-resizeme slider-content" data-frames="[{&quot;delay&quot;:1000,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;auto:auto;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" data-textAlign="['center','center','center','center']" data-lineheight="['30','30','30','30']" data-fontsize="['16','16','16','14']"
+                                   data-x="['center']" data-hoffset="['0', '0', '0', '0']" data-y="['middle']" data-voffset="['50','50','50','50']">
+                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum<br>dolore eu fugiat nulla pariatur.
+                                </p>
+                                <div class=" scoll-mr2 carousel-caption tp-caption tp-resizeme be-btn be-btn-primary be-btn-pill text-uppercase carousel-caption" data-frames='[{"delay":700,"speed":2000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:40px;","to":"o:1;fb:0;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                                     data-responsive="on" data-x="['center']" data-hoffset="['-70','-70','-70','-70']" data-y="['middle']" data-voffset="['180']">
+                                    <a href="/Product/Index" type="button" class="btn button buttonV1 btn-hover">SHOP NOW</a>
+                                    <a href="/gioi-thieu" type="button" class="btn button buttonV2 btn-hoverV3">ABOUT US</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="tp-bannertimer styleSlide"></div>
+                    </div>
+                </div>
+            </div>
+            @RenderSection("homebot", required: false)
+
+        </header>
+
+        <div>
+            @RenderBody()
+        </div>
+        <footer id="footerV2">
+            <div class="container" style="position: relative">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="footer-contentV2">
+                            <div class="footer-titleV2">
+                                <h4 style="font-size: 32px;font-weight: 700">WOODY STORE</h4>
+                            </div>
+                            <p>
+                                Woody integrates design, technology and <br>
+                                nature. We offer innovative wooden<br>
+                                products to a more sustainable and<br>
+                                durable envoriment.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="footer-titleV2">
+                                    <h4>Menu</h4>
+                                </div>
+                                <div class="list-support">
+                                    <a href="Home.html"><p>Home</p></a>
+                                    <a href="ProductGrid.html" class="active"><p>Product</p></a>
+                                    <a href="AboutUs.html"><p>About Us</p></a>
+                                    <a href="Contact.html"><p>Contact</p></a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="footer-titleV2">
+                                    <h4>Explore</h4>
+                                </div>
+                                <div class="list-support">
+                                    <a href="Policy.html"> <p>Policy</p></a>
+                                    <a href="FAQ.html"> <p>FAQ</p></a>
+                                    <a href="Blogs.html"> <p>Blog</p></a>
+                                    <a href="Gallery.html"> <p>Gallery</p></a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="footer-titleV2">
+                                    <h4>Other</h4>
+                                </div>
+                                <div class="list-support">
+                                    <a href="AccountDetail.html"> <p>Account</p></a>
+                                    <a href="Cart.html"> <p>Cart</p></a>
+                                    <a href="WishList.html"> <p>Wishlist</p></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="footer-titleV2">
+                            <h4>Follow Us On</h4>
+                        </div>
+                        <div class="follow-list-icon">
+                            <div class="mr-icon">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="footer-titleV2">
+                            <h4 style="    margin-top: 30px;">Payment Menthod</h4>
+                        </div>
+                        <div class="follow-list-icon">
+                            <div class="mr-icon">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-fw fa-cc-visa" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-fw fa-cc-paypal" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-fw fa-cc-jcb" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-fw fa-cc-mastercard" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="bttop" style="display: block;">
+                    <i class="fa fa-chevron-up"></i>
+                </div>
+            </div>
+            <div class="copy-right">
+                <div class="container">
+                    <div class="clearfix">
+                        <p style="float: left">Copyrights  2019 All Woody by Arena Muiltimedia</p>
+                        <div class="mr-icon" style="float: right;    width: 50%;    margin-top: 16px;">
+                            <ul>
+                                <li><a href="Policy.html">Term of user</a></li>
+                                <li><a href="Policy.html">Private Policy</a></li>
+                                <li><a href="Contact.html">Site map</a></li>
+                                <li><a href="#">Languages: ENG</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/Asset/User/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="~/Asset/User/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Asset/User/vendor/jquery_easing/jquery.easing.min.js"></script>
+    <script src="~/Asset/User/vendor/owl-carousel/js/owl.carousel.js"></script>
+    <script src="~/Asset/User/vendor/slick/js/slick.js"></script>
+    <script src="~/Asset/User/vendor/isotope/js/isotope.js"></script>
+    <script src="~/Asset/User/vendor/isotope/js/imagesloaded.pkgd.js"></script>
+    <script src="~/Asset/User/vendor/range_filter/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="~/Asset/User/vendor/slider-revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="~/Asset/User/vendor/slider-revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="~/Asset/User/vendor/slider-revolution/js/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="~/Asset/User/vendor/slider-revolution/js/revolution.extension.carousel.min.js"></script>
+    <script type="text/javascript" src="~/Asset/User/vendor/slider-revolution/js/revolution.extension.kenburn.min.js"></script>
+    <script type="text/javascript" src="~/Asset/User/vendor/slider-revolution/js/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="~/Asset/User/vendor/slider-revolution/js/revolution.extension.migration.min.js"></script>
+    <script type="text/javascript" src="~/Asset/User/vendor/slider-revolution/js/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="~/Asset/User/vendor/slider-revolution/js/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="~/Asset/User/vendor/slider-revolution/js/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="~/Asset/User/vendor/slider-revolution/js/revolution.extension.video.min.js"></script>
+    <script src="~/Asset/User/script/main.js"></script>
+    <!-- Zoom slide -->
+    <script src="~/Asset/User/vendor/slide-zoom/js/jquery.modernizr.js"></script>
+    <script src="~/Asset/User/vendor/slide-zoom/js/instafeed.min.js"></script>
+    <script src="~/Asset/User/vendor/slide-zoom/js/elevatezoom.min.js"></script>
+    <script src="~/Asset/User/vendor/slide-zoom/js/jquery.fancybox.min.js"></script>
+    <script src="~/Asset/User/script/Cart.js"></script>
+    @RenderSection("jsCart", required: false)
+    <!-- End zoom slide -->
+
+</body>
+</html>
